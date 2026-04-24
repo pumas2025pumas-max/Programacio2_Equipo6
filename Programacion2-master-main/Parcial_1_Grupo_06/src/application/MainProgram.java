@@ -5,16 +5,19 @@ import listModule.ListExercise;
 import stackModule.StackExercise;
 import queueModule.QueueExercise;
 
+//
 public class MainProgram {
 
     private boolean running = true;
     private Exercise exercise;
 
+    // Crea una instancia de MainProgram y ejecuta run en la misma
     public static void main(String[] args) {
         MainProgram program = new MainProgram();
         program.run();
     }
 
+    // Crea una Variable Scanner, Ejecuta el ciclo y luego cierra el Scanner
     private void run() {
         Scanner sc = new Scanner(System.in);
 

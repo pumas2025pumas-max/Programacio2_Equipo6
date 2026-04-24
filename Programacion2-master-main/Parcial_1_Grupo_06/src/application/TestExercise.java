@@ -1,15 +1,16 @@
 package application;
+
 import java.util.Scanner;
 
-
+// Prueba de la clase Exercise
 public class TestExercise extends Exercise {
-	
+
 	public TestExercise(Scanner scanner) {
 		super(scanner);
 	}
 
 	@Override
-	
+
 	protected void exerciseLogic() {
 		System.out.println("¡Bienvenido al TP del grupo 06!");
 		System.out.println("Volver al menú principal, marca 0");
@@ -20,9 +21,7 @@ public class TestExercise extends Exercise {
 		} else {
 			System.out.println("Ingresa una opción válida");
 		}
-	
+
 	}
-	
-	
-	
+
 }
