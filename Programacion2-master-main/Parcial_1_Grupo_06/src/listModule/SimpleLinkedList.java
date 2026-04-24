@@ -2,13 +2,13 @@ package listModule;
 
 class Node<E> {
 	E element;
-	Node<E> next;
-	Node<E> prev;
+	Node<E> next; //elemento enlazado proximo
+	Node<E> prev; //elemento enlazado previo
 
 	public Node(E element) {
 		this.element = element;
-		this.next = null;
-		this.prev = null;
+		this.next = null;//elemento proximo inexistente
+		this.prev = null;//elemento previo inexistente
 	}
 
 }
@@ -20,8 +20,8 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 	private int size;
 
 	public SimpleLinkedList() {
-		this.head = null;
-		this.tail = null;
+		this.head = null; //inicio de la lista
+		this.tail = null; // final de la lista
 		this.size = 0;
 
 	}
@@ -29,17 +29,17 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 	// inserta un elemento al final de la lista
 	@Override
 	public boolean add(E element) {
-		Node<E> newNode = new Node<>(element);
-		if (isEmpty()) {
+		Node<E> newNode = new Node<>(element); // Creamos un nuevo nodo con el valor recibido
+		if (isEmpty()) { // si esta vacia, el elemento es el primero y el ultimo
 			head = newNode;
 			tail = newNode;
-		} else {
+		} else { // si no esta vacia, conecta el nuevo nodo al ultimo nodo de la lista
 			newNode.prev = tail;
 			tail.next = newNode;
 			tail = newNode;
 
 		}
-		size++;
+		size++; //incrementa el tamaño de la lista
 		return true;
 
 	}
