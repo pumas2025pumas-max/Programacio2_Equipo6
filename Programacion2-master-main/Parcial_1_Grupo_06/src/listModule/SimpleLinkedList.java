@@ -26,6 +26,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 
 	}
 
+	// inserta un elemento al final de la lista
 	@Override
 	public boolean add(E element) {
 		Node<E> newNode = new Node<>(element);
@@ -43,6 +44,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 
 	}
 
+	// inserta un elemento en la posicion index
 	@Override
 	public void add(int index, E element) {
 		if (index < 0 || index > size)
@@ -72,6 +74,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 
 	}
 
+	// devuelve el nodo en la posicion index
 	private Node<E> getNode(int index) {
 		if (index < 0 || index >= size || head == null) {
 			return null;
@@ -85,6 +88,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 		return current;
 	}
 
+	// remueve el elemento en la posicion index
 	@Override
 	public E remove(int index) {
 		if (index < 0 || index >= size)
@@ -110,6 +114,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 
 	}
 
+	// remueve un elemento por su valor
 	@Override
 	public boolean remove(Object object) {
 		Node<E> current = head;
@@ -131,6 +136,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 		return false;
 	}
 
+	// borra todos los elementos de la lista
 	@Override
 	public void clear() {
 		head = null;
@@ -139,6 +145,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 
 	}
 
+	// busca si un elemento existe en la lista
 	@Override
 	public boolean contains(Object object) {
 		Node<E> current = head;
@@ -150,6 +157,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 		return false;
 	}
 
+	// devuelve el elemento en la posicion index
 	@Override
 	public E get(int index) {
 		Node<E> node = getNode(index);
@@ -159,6 +167,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 		return node.element;
 	}
 
+	// reemplaza el elemento en la posicion index
 	@Override
 	public E set(int index, E element) {
 		Node<E> target = getNode(index);
@@ -167,11 +176,13 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
 		return oldElement;
 	}
 
+	// devuelve el tamaño de la lista
 	@Override
 	public int size() {
 		return this.size;
 	}
 
+	// devuelve true si la lista esta vacia
 	@Override
 	public boolean isEmpty() {
 		return this.head == null;

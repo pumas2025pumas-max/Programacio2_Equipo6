@@ -24,6 +24,7 @@ public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
 		this.size = 0;
 	}
 
+	// inserta un elemento al final de la cola
 	@Override
 	public void enqueue(E element) {
 		QueueNode<E> newNode = new QueueNode<>(element);
@@ -38,6 +39,7 @@ public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
 		size++;
 	}
 
+	// borra el primer elemento de la cola
 	@Override
 	public E dequeue() {
 		if (isEmpty())
@@ -53,6 +55,7 @@ public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
 		return element;
 	}
 
+	// muestra el primer elemento de la cola sin borrarlo
 	@Override
 	public E peek() {
 		if (isEmpty())
@@ -60,6 +63,7 @@ public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
 		return head.element;
 	}
 
+	// borra todos los elementos de la cola
 	@Override
 	public void clear() {
 		head = null;
@@ -67,11 +71,13 @@ public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
 		size = 0;
 	}
 
+	// muestra el tamaño de la cola
 	@Override
 	public int size() {
 		return this.size;
 	}
 
+	// devuelve true si la cola esta vacia
 	@Override
 	public boolean isEmpty() {
 		return this.head == null;

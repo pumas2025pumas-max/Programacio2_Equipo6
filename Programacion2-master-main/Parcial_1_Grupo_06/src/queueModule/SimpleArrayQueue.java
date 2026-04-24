@@ -21,6 +21,7 @@ public class SimpleArrayQueue<E> implements SimpleQueue<E> {
 		this.array = nuevoArray;
 	}
 
+	// inserta un elemento en la cola al final
 	@Override
 	public void enqueue(E element) {
 		if (size == array.length) {
@@ -30,6 +31,7 @@ public class SimpleArrayQueue<E> implements SimpleQueue<E> {
 		size++;
 	}
 
+	// borra el primer elemento de la cola
 	@Override
 	public E dequeue() {
 		if (isEmpty())
@@ -43,6 +45,7 @@ public class SimpleArrayQueue<E> implements SimpleQueue<E> {
 		return element;
 	}
 
+	// muestra el primer elemento de la cola sin borrarlo
 	@Override
 	public E peek() {
 		if (isEmpty())
@@ -50,17 +53,20 @@ public class SimpleArrayQueue<E> implements SimpleQueue<E> {
 		return (E) array[0];
 	}
 
+	// borra todos los elementos de la cola
 	@Override
 	public void clear() {
 		this.array = new Object[INITIAL_CAPACITY];
 		this.size = 0;
 	}
 
+	// devuelve el tamaño de la cola
 	@Override
 	public int size() {
 		return this.size;
 	}
 
+	// devuelve true si la cola esta vacia
 	@Override
 	public boolean isEmpty() {
 		return this.size == 0;

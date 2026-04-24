@@ -20,6 +20,7 @@ public class SimpleLinkedStack<E> implements SimpleStack<E> {
 		this.size = 0;
 	}
 
+	// inserta un elemento al final de la pila
 	@Override
 	public void push(E element) {
 		StackNode<E> newNode = new StackNode<>(element);
@@ -28,6 +29,7 @@ public class SimpleLinkedStack<E> implements SimpleStack<E> {
 		size++;
 	}
 
+	// borra el ultimo elemento de la pila
 	@Override
 	public E pop() {
 		if (isEmpty())
@@ -38,6 +40,7 @@ public class SimpleLinkedStack<E> implements SimpleStack<E> {
 		return element;
 	}
 
+	// muestra el ultimo elemento de la pila sin borrarlo
 	@Override
 	public E peek() {
 		if (isEmpty())
@@ -45,17 +48,20 @@ public class SimpleLinkedStack<E> implements SimpleStack<E> {
 		return top.element;
 	}
 
+	// borra todos los elementos de la pila
 	@Override
 	public void clear() {
 		top = null;
 		size = 0;
 	}
 
+	// muestra el tamaño de la pila
 	@Override
 	public int size() {
 		return this.size;
 	}
 
+	// devuelve true si la pila esta vacia
 	@Override
 	public boolean isEmpty() {
 		return this.top == null;

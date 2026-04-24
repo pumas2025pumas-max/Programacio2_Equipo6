@@ -21,6 +21,7 @@ public class SimpleArrayStack<E> implements SimpleStack<E> {
 		this.array = nuevoArray;
 	}
 
+	// Inserta un elemento final de la pila
 	@Override
 	public void push(E element) {
 		if (size == array.length) {
@@ -30,6 +31,7 @@ public class SimpleArrayStack<E> implements SimpleStack<E> {
 		size++;
 	}
 
+	// Borra el ultimo elemento de la pila
 	@Override
 	public E pop() {
 		if (isEmpty())
@@ -40,6 +42,7 @@ public class SimpleArrayStack<E> implements SimpleStack<E> {
 		return element;
 	}
 
+	// muestra el ultimo elemento de la pila sin borrarlo
 	@Override
 	public E peek() {
 		if (isEmpty())
@@ -47,17 +50,20 @@ public class SimpleArrayStack<E> implements SimpleStack<E> {
 		return (E) array[size - 1];
 	}
 
+	// borra todos los elementos de la pila
 	@Override
 	public void clear() {
 		this.array = new Object[INITIAL_CAPACITY];
 		this.size = 0;
 	}
 
+	// devuelve el tamaño de la pila
 	@Override
 	public int size() {
 		return this.size;
 	}
 
+	// devuelve true si la pila esta vacia
 	@Override
 	public boolean isEmpty() {
 		return this.size == 0;
