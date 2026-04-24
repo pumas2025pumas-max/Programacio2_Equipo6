@@ -6,27 +6,27 @@ import stackModule.StackExercise;
 import queueModule.QueueExercise;
 
 public class MainProgram {
-    
+
     private boolean running = true;
-    private Exercise exercise; 
-    
+    private Exercise exercise;
+
     public static void main(String[] args) {
-        MainProgram program = new MainProgram();        
-        program.run();    
+        MainProgram program = new MainProgram();
+        program.run();
     }
-    
+
     private void run() {
         Scanner sc = new Scanner(System.in);
-        
+
         while (running) {
             selectExercise(sc);
-        } 
-        
-        sc.close();    
+        }
+
+        sc.close();
         System.out.println("Programa finalizado con éxito.");
     }
-    
-    // Ofrece al usuario elegir un ejercicio o terminar el programa
+
+    // Muestra las opciones para ejecutar los diferentes ejercicios
     private void selectExercise(Scanner scanner) {
         System.out.println("\n----- Main Program -----");
         System.out.println("1. Ejecutar ejercicio de Listas (ListExercise)");
@@ -34,11 +34,11 @@ public class MainProgram {
         System.out.println("3. Ejecutar ejercicio de Cola (QueueExercise)");
         System.out.println("4. Terminar el programa");
         System.out.print("Seleccione una opción: ");
-        
+
         if (scanner.hasNextInt()) {
             int opcion = scanner.nextInt();
-            scanner.nextLine(); 
-            
+            scanner.nextLine();
+
             switch (opcion) {
                 case 1:
                     exercise = new ListExercise(scanner);
@@ -61,9 +61,8 @@ public class MainProgram {
                     break;
             }
         } else {
-            // Si el usuario ingresa texto inválido, se repite la selección
             System.out.println("Error: Ingrese un número.");
             scanner.nextLine();
         }
     }
-}
+}

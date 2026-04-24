@@ -1,6 +1,5 @@
 package stackModule;
 
-// Nodo para la pila enlazada
 class StackNode<E> {
 	E element;
 	StackNode<E> next;
@@ -31,7 +30,8 @@ public class SimpleLinkedStack<E> implements SimpleStack<E> {
 
 	@Override
 	public E pop() {
-		if (isEmpty()) return null;
+		if (isEmpty())
+			return null;
 		E element = top.element;
 		top = top.next;
 		size--;
@@ -40,7 +40,8 @@ public class SimpleLinkedStack<E> implements SimpleStack<E> {
 
 	@Override
 	public E peek() {
-		if (isEmpty()) return null;
+		if (isEmpty())
+			return null;
 		return top.element;
 	}
 

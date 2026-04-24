@@ -68,7 +68,7 @@ public class QueueExercise extends Exercise {
 		}
 	}
 
-	// Pregunta al usuario si desea repetir la operación
+	// Repite la funcion si el usuario lo quiere
 	private boolean preguntarRepetir() {
 		while (true) {
 			System.out.println("¿Desea repetir la operación? (si/no):");
@@ -113,7 +113,6 @@ public class QueueExercise extends Exercise {
 		} else {
 			System.out.println("Primer elemento de la cola: " + queue.peek());
 		}
-		// Peek siempre vuelve al menú (repetirlo muestra lo mismo)
 		currentPhase = 0;
 	}
 

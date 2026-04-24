@@ -1,4 +1,5 @@
 package listModule;
+
 import java.util.Scanner;
 import application.Exercise;
 
@@ -6,11 +7,11 @@ public class ListExercise extends Exercise {
     private int currentPhase = 0;
     private boolean firstTime = true;
     private SimpleList list;
+
     public ListExercise(Scanner scanner) {
         super(scanner);
         this.list = new SimpleLinkedList();
-        
-       
+
     }
 
     @Override
@@ -46,8 +47,7 @@ public class ListExercise extends Exercise {
         }
 
         System.out.println("\n--- ESTADO ACTUAL DE LA LISTA ---");
-        
-        
+
         System.out.print("Elementos: [");
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + (i < list.size() - 1 ? ", " : ""));
@@ -56,7 +56,7 @@ public class ListExercise extends Exercise {
 
         System.out.println("Cantidad de elementos: " + list.size());
         System.out.println("¿La lista está vacía?: " + (list.isEmpty() ? "Sí" : "No"));
-        
+
         System.out.println("\nElija una opción:");
         System.out.println("1. Agregar un elemento");
         System.out.println("2. Remover por índice");
@@ -64,21 +64,20 @@ public class ListExercise extends Exercise {
         System.out.println("4. Limpiar toda la lista");
         System.out.println("5. Salir al Menú Principal");
 
-        
         if (scanner.hasNextInt()) {
             currentPhase = scanner.nextInt();
-            scanner.nextLine(); 
-            
+            scanner.nextLine();
+
             if (currentPhase == 5) {
                 running = false;
             }
         } else {
             System.out.println("Error: Ingrese un número.");
-            scanner.nextLine(); 
+            scanner.nextLine();
         }
     }
 
-    // Muestra los elementos actuales de la lista separados por coma
+    // Muestra los elementos de la lista
     private void mostrarLista() {
         System.out.print("Elementos: [");
         for (int i = 0; i < list.size(); i++) {
@@ -87,7 +86,7 @@ public class ListExercise extends Exercise {
         System.out.println("]");
     }
 
-    // Pregunta al usuario si desea repetir la operación (si/no)
+    // Pregunta si se quiere repetir funcion
     private boolean preguntarRepetir() {
         while (true) {
             System.out.println("¿Desea repetir la operación? (si/no):");
@@ -121,7 +120,7 @@ public class ListExercise extends Exercise {
         System.out.println("\nEscribe el índice (posición) a eliminar (0 a " + (list.size() - 1) + "):");
         if (scanner.hasNextInt()) {
             int indice = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             if (indice >= 0 && indice < list.size()) {
                 String borrado = (String) list.remove(indice);

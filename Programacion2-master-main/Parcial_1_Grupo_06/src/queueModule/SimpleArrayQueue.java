@@ -11,7 +11,7 @@ public class SimpleArrayQueue<E> implements SimpleQueue<E> {
 		this.size = 0;
 	}
 
-	// Duplica la capacidad del array cuando se llena
+	// Multiplica la capacidad del array cada vez que se esta por llenar
 	private void resize() {
 		int nuevaCapacidad = array.length * 2;
 		Object[] nuevoArray = new Object[nuevaCapacidad];
@@ -32,9 +32,9 @@ public class SimpleArrayQueue<E> implements SimpleQueue<E> {
 
 	@Override
 	public E dequeue() {
-		if (isEmpty()) return null;
+		if (isEmpty())
+			return null;
 		E element = (E) array[0];
-		// Desplazar todos los elementos una posición a la izquierda
 		for (int i = 0; i < size - 1; i++) {
 			array[i] = array[i + 1];
 		}
@@ -45,7 +45,8 @@ public class SimpleArrayQueue<E> implements SimpleQueue<E> {
 
 	@Override
 	public E peek() {
-		if (isEmpty()) return null;
+		if (isEmpty())
+			return null;
 		return (E) array[0];
 	}
 

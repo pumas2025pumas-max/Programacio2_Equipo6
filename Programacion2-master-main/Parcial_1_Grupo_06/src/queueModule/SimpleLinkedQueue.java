@@ -1,6 +1,5 @@
 package queueModule;
 
-// Nodo para la cola enlazada
 class QueueNode<E> {
 	E element;
 	QueueNode<E> next;
@@ -15,8 +14,8 @@ class QueueNode<E> {
 
 public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
 
-	private QueueNode<E> head; // frente de la cola (donde se hace dequeue)
-	private QueueNode<E> tail; // final de la cola (donde se hace enqueue)
+	private QueueNode<E> head;
+	private QueueNode<E> tail;
 	private int size;
 
 	public SimpleLinkedQueue() {
@@ -41,7 +40,8 @@ public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
 
 	@Override
 	public E dequeue() {
-		if (isEmpty()) return null;
+		if (isEmpty())
+			return null;
 		E element = head.element;
 		head = head.next;
 		if (head != null) {
@@ -55,7 +55,8 @@ public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
 
 	@Override
 	public E peek() {
-		if (isEmpty()) return null;
+		if (isEmpty())
+			return null;
 		return head.element;
 	}
 
