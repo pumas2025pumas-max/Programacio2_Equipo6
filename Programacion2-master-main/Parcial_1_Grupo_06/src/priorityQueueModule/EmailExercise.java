@@ -69,9 +69,12 @@ public class EmailExercise extends Exercise {
 	private void redactarMail() {
 		System.out.println("\n--- Redactar Mail ---");
 
-		// Pedir asunto
-		System.out.println("Ingrese el asunto del mail:");
-		String asunto = scanner.nextLine();
+		// Pedir asunto con validacion
+		String asunto = pedirAsunto();
+		if (asunto == null) {
+			currentPhase = 0;
+			return;
+		}
 
 		// Pedir categoria con validacion
 		String categoria = pedirCategoria();
@@ -100,6 +103,24 @@ public class EmailExercise extends Exercise {
 			return;
 		}
 		currentPhase = 0;
+	}
+
+	// Valida y devuelve el asunto ingresado por el usuario
+	private String pedirAsunto() {
+		int intentos = 0;
+		while (intentos < 3) {
+			System.out.println("Ingrese el asunto del mail:");
+			String input = scanner.nextLine().trim();
+
+			if (!input.isEmpty()) {
+				return input;
+			}
+
+			System.out.println("El asunto no puede estar vacío.");
+			intentos++;
+		}
+		System.out.println("Demasiados intentos inválidos. Volviendo al menú.");
+		return null;
 	}
 
 	// Valida y devuelve la categoria ingresada por el usuario
