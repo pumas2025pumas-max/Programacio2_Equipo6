@@ -6,6 +6,8 @@ import stackModule.StackExercise;
 import queueModule.QueueExercise;
 import setModule.SetExercise;
 import priorityQueueModule.EmailExercise;
+import dictionaryModule.LoginExercise;
+import bstModule.ContactsExercise;
 
 //
 public class MainProgram {
@@ -39,7 +41,9 @@ public class MainProgram {
         System.out.println("3. Ejecutar ejercicio de Cola (QueueExercise)");
         System.out.println("4. Ejecutar ejercicio de Set (SetExercise)");
         System.out.println("5. Ejecutar ejercicio de Email (EmailExercise)");
-        System.out.println("6. Terminar el programa");
+        System.out.println("6. Ejecutar ejercicio de Login (LoginExercise)");
+        System.out.println("7. Ejecutar ejercicio de Contactos (ContactsExercise)");
+        System.out.println("8. Terminar el programa");
         System.out.print("Seleccione una opción: ");
 
         if (scanner.hasNextInt()) {
@@ -68,6 +72,14 @@ public class MainProgram {
                     exercise.run();
                     break;
                 case 6:
+                    exercise = new LoginExercise(scanner);
+                    exercise.run();
+                    break;
+                case 7:
+                    exercise = new ContactsExercise(scanner);
+                    exercise.run();
+                    break;
+                case 8:
                     running = false;
                     System.out.println("Saliendo del programa principal...");
                     break;
