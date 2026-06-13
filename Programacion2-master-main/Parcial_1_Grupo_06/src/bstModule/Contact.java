@@ -35,4 +35,9 @@ public class Contact {
 	public String toString() {
 		return nombre + " | Tel: " + numero + " | Mail: " + mail;
 	}
+
+	public void setNombre(String nuevoNombre) {
+		this.nombre = nuevoNombre;
+		
+	}
 }
