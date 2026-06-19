@@ -10,7 +10,7 @@ public class ContactsExercise extends Exercise {
 
 	public ContactsExercise(Scanner scanner) {
 		super(scanner);
-		this.contactos = new LinkedBST<>();
+		this.contactos = new LinkedAVL<>();
 	}
 
 	@Override

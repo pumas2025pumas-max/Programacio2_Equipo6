@@ -5,19 +5,21 @@ class BSTNode<K extends Comparable<K>, V> {
 	V value;
 	BSTNode<K, V> left;
 	BSTNode<K, V> right;
+	int height; // Altura del nodo (usado por AVL)
 
 	public BSTNode(K key, V value) {
 		this.key = key;
 		this.value = value;
 		this.left = null;
 		this.right = null;
+		this.height = 1; // Un nodo nuevo tiene altura 1
 	}
 }
 
 public class LinkedBST<K extends Comparable<K>, V> implements SimpleBST<K, V> {
 
-	private BSTNode<K, V> root;
-	private int size;
+	protected BSTNode<K, V> root;
+	protected int size;
 
 	public LinkedBST() {
 		this.root = null;
@@ -30,7 +32,7 @@ public class LinkedBST<K extends Comparable<K>, V> implements SimpleBST<K, V> {
 		root = putRecursive(root, key, value);
 	}
 
-	private BSTNode<K, V> putRecursive(BSTNode<K, V> node, K key, V value) {
+	protected BSTNode<K, V> putRecursive(BSTNode<K, V> node, K key, V value) {
 		if (node == null) {
 			size++;
 			return new BSTNode<>(key, value);
@@ -79,7 +81,7 @@ public class LinkedBST<K extends Comparable<K>, V> implements SimpleBST<K, V> {
 		return value;
 	}
 
-	private BSTNode<K, V> removeRecursive(BSTNode<K, V> node, K key) {
+	protected BSTNode<K, V> removeRecursive(BSTNode<K, V> node, K key) {
 		if (node == null) {
 			return null;
 		}
@@ -113,7 +115,7 @@ public class LinkedBST<K extends Comparable<K>, V> implements SimpleBST<K, V> {
 	}
 
 	// Encuentra el nodo con la clave minima (el mas a la izquierda)
-	private BSTNode<K, V> findMin(BSTNode<K, V> node) {
+	protected BSTNode<K, V> findMin(BSTNode<K, V> node) {
 		while (node.left != null) {
 			node = node.left;
 		}
