@@ -1,5 +1,8 @@
 package dictionaryModule;
 
+import listModule.SimpleList;
+import listModule.SimpleLinkedList;
+
 class DictEntry<K, V> {
 	K key;
 	V value;
@@ -116,16 +119,14 @@ public class SimpleHashDictionary<K, V> implements SimpleDictionary<K, V> {
 		return this.size == 0;
 	}
 
-	// Devuelve un array con todas las claves
+	// Devuelve una lista con todas las claves
 	@Override
-	public Object[] keys() {
-		Object[] result = new Object[size];
-		int pos = 0;
+	public SimpleList<K> keys() {
+		SimpleList<K> result = new SimpleLinkedList<>();
 		for (int i = 0; i < buckets.length; i++) {
 			DictEntry<K, V> current = buckets[i];
 			while (current != null) {
-				result[pos] = current.key;
-				pos++;
+				result.add(current.key);
 				current = current.next;
 			}
 		}

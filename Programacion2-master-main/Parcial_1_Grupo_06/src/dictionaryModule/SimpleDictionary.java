@@ -1,5 +1,7 @@
 package dictionaryModule;
 
+import listModule.SimpleList;
+
 public interface SimpleDictionary<K, V> {
 	// Agrega o actualiza un par clave-valor
 	public void put(K key, V value);
@@ -22,6 +24,6 @@ public interface SimpleDictionary<K, V> {
 	// Devuelve true si el diccionario esta vacio
 	public boolean isEmpty();
 
-	// Devuelve un array con todas las claves
-	public Object[] keys();
+	// Devuelve una lista con todas las claves
+	public SimpleList<K> keys();
 }

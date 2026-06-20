@@ -8,6 +8,7 @@ import setModule.SetExercise;
 import priorityQueueModule.EmailExercise;
 import dictionaryModule.LoginExercise;
 import bstModule.ContactsExercise;
+import graphModule.GPSExercise;
 
 //
 public class MainProgram {
@@ -43,7 +44,8 @@ public class MainProgram {
         System.out.println("5. Ejecutar ejercicio de Email (EmailExercise)");
         System.out.println("6. Ejecutar ejercicio de Login (LoginExercise)");
         System.out.println("7. Ejecutar ejercicio de Contactos (ContactsExercise)");
-        System.out.println("8. Terminar el programa");
+        System.out.println("8. Ejecutar ejercicio de GPS (GPSExercise)");
+        System.out.println("9. Terminar el programa");
         System.out.print("Seleccione una opción: ");
 
         if (scanner.hasNextInt()) {
@@ -80,6 +82,10 @@ public class MainProgram {
                     exercise.run();
                     break;
                 case 8:
+                    exercise = new GPSExercise(scanner);
+                    exercise.run();
+                    break;
+                case 9:
                     running = false;
                     System.out.println("Saliendo del programa principal...");
                     break;
