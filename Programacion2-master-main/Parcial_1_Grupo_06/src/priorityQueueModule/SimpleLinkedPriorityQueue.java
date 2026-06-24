@@ -62,6 +62,14 @@ public class SimpleLinkedPriorityQueue<E> implements SimplePriorityQueue<E> {
 		return head.element;
 	}
 
+	// Devuelve la prioridad del primer elemento
+	@Override
+	public int getHighestPriority() {
+		if (isEmpty())
+			return -1;
+		return head.priority;
+	}
+
 	// Borra todos los elementos de la cola
 	@Override
 	public void clear() {

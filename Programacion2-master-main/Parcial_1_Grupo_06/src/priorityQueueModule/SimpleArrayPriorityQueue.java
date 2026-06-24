@@ -33,20 +33,18 @@ public class SimpleArrayPriorityQueue<E> implements SimplePriorityQueue<E> {
 			resize();
 		}
 
-		// Buscar la posicion correcta para insertar (mantener orden descendente)
-		int pos = 0;
-		while (pos < size && priorities[pos] >= priority) {
-			pos++;
+		int insertIndex = size;
+		for (int i = size - 1; i >= 0; i--) {
+			if (priority >= priorities[i]) {
+				break;
+			}
+			elements[i + 1] = elements[i];
+			priorities[i + 1] = priorities[i];
+			insertIndex = i;
 		}
 
-		// Desplazar elementos hacia la derecha para hacer espacio
-		for (int i = size; i > pos; i--) {
-			elements[i] = elements[i - 1];
-			priorities[i] = priorities[i - 1];
-		}
-
-		elements[pos] = element;
-		priorities[pos] = priority;
+		elements[insertIndex] = element;
+		priorities[insertIndex] = priority;
 		size++;
 	}
 
@@ -75,6 +73,14 @@ public class SimpleArrayPriorityQueue<E> implements SimplePriorityQueue<E> {
 		if (isEmpty())
 			return null;
 		return (E) elements[0];
+	}
+
+	// Devuelve la prioridad del primer elemento
+	@Override
+	public int getHighestPriority() {
+		if (isEmpty())
+			return -1; // o tirar excepcion, usamos -1 como default
+		return priorities[0];
 	}
 
 	// Borra todos los elementos de la cola

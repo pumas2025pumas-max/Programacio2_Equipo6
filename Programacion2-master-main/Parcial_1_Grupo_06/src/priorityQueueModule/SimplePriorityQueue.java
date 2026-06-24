@@ -10,6 +10,9 @@ public interface SimplePriorityQueue<E> {
 	// Devuelve el elemento de mayor prioridad sin removerlo
 	public E peek();
 
+	// Devuelve la prioridad del primer elemento
+	public int getHighestPriority();
+
 	// Borra todos los elementos de la cola
 	public void clear();
 
