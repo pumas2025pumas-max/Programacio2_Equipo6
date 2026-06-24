@@ -136,4 +136,16 @@ public class SimpleLinkedDictionary<K, V> implements SimpleDictionary<K, V> {
 		}
 		return result;
 	}
+
+	// Devuelve una lista con todos los valores
+	@Override
+	public SimpleList<V> values() {
+		SimpleList<V> result = new SimpleLinkedList<>();
+		DictNode<K, V> current = head;
+		while (current != null) {
+			result.add(current.value);
+			current = current.next;
+		}
+		return result;
+	}
 }

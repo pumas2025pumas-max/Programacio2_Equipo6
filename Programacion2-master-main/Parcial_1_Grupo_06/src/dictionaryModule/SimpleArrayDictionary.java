@@ -132,4 +132,15 @@ public class SimpleArrayDictionary<K, V> implements SimpleDictionary<K, V> {
 		}
 		return result;
 	}
+
+	// Devuelve una lista con todos los valores
+	@SuppressWarnings("unchecked")
+	@Override
+	public SimpleList<V> values() {
+		SimpleList<V> result = new SimpleLinkedList<>();
+		for (int i = 0; i < size; i++) {
+			result.add((V) values[i]);
+		}
+		return result;
+	}
 }

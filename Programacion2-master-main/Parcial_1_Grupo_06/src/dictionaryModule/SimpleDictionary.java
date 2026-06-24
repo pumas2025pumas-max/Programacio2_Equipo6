@@ -26,4 +26,7 @@ public interface SimpleDictionary<K, V> {
 
 	// Devuelve una lista con todas las claves
 	public SimpleList<K> keys();
+
+	// Devuelve una lista con todos los valores
+	public SimpleList<V> values();
 }
