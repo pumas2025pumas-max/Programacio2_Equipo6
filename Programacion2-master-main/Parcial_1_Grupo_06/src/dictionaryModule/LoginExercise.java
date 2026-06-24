@@ -12,9 +12,9 @@ public class LoginExercise extends Exercise {
 
 	public LoginExercise(Scanner scanner) {
 		super(scanner);
-		this.usuarios = new SimpleHashDictionary<>();
-		this.intentos = new SimpleHashDictionary<>();
-		this.bloqueados = new SimpleHashDictionary<>();
+		this.usuarios = new SimpleLinkedDictionary<>();
+		this.intentos = new SimpleLinkedDictionary<>();
+		this.bloqueados = new SimpleLinkedDictionary<>();
 	}
 
 	@Override

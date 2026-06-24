@@ -42,6 +42,9 @@ public class SimpleArrayDictionary<K, V> implements SimpleDictionary<K, V> {
 	// Agrega o actualiza un par clave-valor
 	@Override
 	public void put(K key, V value) {
+		if (key == null || value == null) {
+			throw new NullPointerException("La clave y el valor no pueden ser null.");
+		}
 		int index = findIndex(key);
 		if (index != -1) {
 			values[index] = value; // Actualizar valor existente
@@ -59,6 +62,9 @@ public class SimpleArrayDictionary<K, V> implements SimpleDictionary<K, V> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public V get(K key) {
+		if (key == null) {
+			throw new NullPointerException("La clave no puede ser null.");
+		}
 		int index = findIndex(key);
 		if (index == -1) return null;
 		return (V) values[index];
@@ -68,6 +74,9 @@ public class SimpleArrayDictionary<K, V> implements SimpleDictionary<K, V> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public V remove(K key) {
+		if (key == null) {
+			throw new NullPointerException("La clave no puede ser null.");
+		}
 		int index = findIndex(key);
 		if (index == -1) return null;
 
@@ -87,6 +96,9 @@ public class SimpleArrayDictionary<K, V> implements SimpleDictionary<K, V> {
 	// Devuelve true si la clave existe
 	@Override
 	public boolean containsKey(K key) {
+		if (key == null) {
+			throw new NullPointerException("La clave no puede ser null.");
+		}
 		return findIndex(key) != -1;
 	}
 

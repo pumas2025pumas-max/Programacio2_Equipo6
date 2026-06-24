@@ -3,7 +3,7 @@ package graphModule;
 import listModule.SimpleList;
 import listModule.SimpleLinkedList;
 import dictionaryModule.SimpleDictionary;
-import dictionaryModule.SimpleHashDictionary;
+import dictionaryModule.SimpleLinkedDictionary;
 
 public class SimpleAdjacencyListGraph<T> implements SimpleGraph<T> {
 
@@ -11,7 +11,7 @@ public class SimpleAdjacencyListGraph<T> implements SimpleGraph<T> {
 	private int size;
 
 	public SimpleAdjacencyListGraph() {
-		this.adjacencyList = new SimpleHashDictionary<>();
+		this.adjacencyList = new SimpleLinkedDictionary<>();
 		this.size = 0;
 	}
 

@@ -3,7 +3,7 @@ package graphModule;
 import listModule.SimpleList;
 import listModule.SimpleLinkedList;
 import dictionaryModule.SimpleDictionary;
-import dictionaryModule.SimpleHashDictionary;
+import dictionaryModule.SimpleLinkedDictionary;
 import priorityQueueModule.SimplePriorityQueue;
 import priorityQueueModule.SimpleLinkedPriorityQueue;
 
@@ -12,11 +12,11 @@ public class Dijkstra {
 	// Calcula el camino mas corto entre origin y destination usando Dijkstra
 	public static <T> DijkstraResult<T> shortestPath(SimpleGraph<T> graph, T origin, T destination) {
 		// Diccionario de distancias minimas desde origin a cada vertice
-		SimpleDictionary<T, Integer> distances = new SimpleHashDictionary<>();
+		SimpleDictionary<T, Integer> distances = new SimpleLinkedDictionary<>();
 		// Diccionario de vertices previos (para reconstruir el camino)
-		SimpleDictionary<T, T> previous = new SimpleHashDictionary<>();
+		SimpleDictionary<T, T> previous = new SimpleLinkedDictionary<>();
 		// Diccionario para marcar vertices ya visitados
-		SimpleDictionary<T, Boolean> visited = new SimpleHashDictionary<>();
+		SimpleDictionary<T, Boolean> visited = new SimpleLinkedDictionary<>();
 
 		// Cola de prioridad: usamos prioridad negada porque nuestra cola
 		// devuelve el de MAYOR prioridad primero, y necesitamos el de MENOR distancia
