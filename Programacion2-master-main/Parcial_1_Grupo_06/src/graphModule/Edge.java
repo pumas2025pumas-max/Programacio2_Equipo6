@@ -17,6 +17,21 @@ public class Edge<T> {
 		return weight;
 	}
 
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	// Override equals para comparar por destination y weight
+	@Override
+	@SuppressWarnings("unchecked")
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		Edge<T> other = (Edge<T>) obj;
+		return this.weight == other.weight &&
+			this.destination.equals(other.destination);
+	}
+
 	@Override
 	public String toString() {
 		return destination + ": " + weight;
