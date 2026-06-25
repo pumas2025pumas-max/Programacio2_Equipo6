@@ -30,7 +30,7 @@ public class LoginExercise extends Exercise {
 				menuLogic();
 				break;
 			default:
-				System.out.println("Opción no válida, volviendo al menú.");
+				System.out.println("   ");
 				currentPhase = 3;
 				break;
 		}

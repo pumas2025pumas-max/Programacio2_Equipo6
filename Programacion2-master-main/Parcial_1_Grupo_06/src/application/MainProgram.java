@@ -90,7 +90,7 @@ public class MainProgram {
                     System.out.println("Saliendo del programa principal...");
                     break;
                 default:
-                    System.out.println("Opción no válida. Intente de nuevo.");
+                    System.out.println("    ");
                     break;
             }
         } else {
