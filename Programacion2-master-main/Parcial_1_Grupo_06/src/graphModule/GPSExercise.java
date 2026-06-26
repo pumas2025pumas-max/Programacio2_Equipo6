@@ -5,7 +5,7 @@ import application.Exercise;
 import listModule.SimpleList;
 
 public class GPSExercise extends Exercise {
-	private int currentPhase = 0;
+	private int currentPhase = 5;
 	private boolean firstTime = true;
 	private SimpleAdjacencyListGraph<String> mapa;
 
@@ -20,11 +20,11 @@ public class GPSExercise extends Exercise {
 		// Rutas bidireccionales (se agregan en ambas direcciones)
 		agregarRutaBidireccional("Buenos Aires", "Rosario", 300);
 		agregarRutaBidireccional("Buenos Aires", "La Plata", 60);
-		agregarRutaBidireccional("Rosario", "Córdoba", 400);
+		agregarRutaBidireccional("Rosario", "Cordoba", 400);
 		agregarRutaBidireccional("Rosario", "Santa Fe", 170);
-		agregarRutaBidireccional("Córdoba", "Mendoza", 650);
-		agregarRutaBidireccional("Córdoba", "Tucumán", 530);
-		agregarRutaBidireccional("Santa Fe", "Paraná", 30);
+		agregarRutaBidireccional("Cordoba", "Mendoza", 650);
+		agregarRutaBidireccional("Cordoba", "Tucuman", 530);
+		agregarRutaBidireccional("Santa Fe", "Parana", 30);
 		agregarRutaBidireccional("La Plata", "Mar del Plata", 360);
 		agregarRutaBidireccional("Mendoza", "San Juan", 170);
 	}
@@ -37,7 +37,10 @@ public class GPSExercise extends Exercise {
 
 	@Override
 	protected void exerciseLogic() {
-		switch (currentPhase) {
+			if (firstTime) {
+				currentPhase = 5;
+			}
+			switch (currentPhase) {
 			case 1:
 				mostrarMapa();
 				break;
@@ -95,14 +98,14 @@ public class GPSExercise extends Exercise {
 
 		if (mapa.size() == 0) {
 			System.out.println("El mapa está vacío.");
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
 		mapa.printGraph();
 		System.out.println("\nTotal: " + mapa.size() + " ciudad(es).");
 
-		currentPhase = 0;
+		currentPhase = 5;
 	}
 
 	// Calcula el camino más corto entre dos ciudades usando Dijkstra
@@ -119,32 +122,32 @@ public class GPSExercise extends Exercise {
 		// Pedir origen
 		String origen = pedirCiudad("Ingrese la ciudad de origen:");
 		if (origen == null) {
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
 		if (!mapa.containsVertex(origen)) {
 			System.out.println("Error: La ciudad '" + origen + "' no existe en el mapa.");
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
 		// Pedir destino
 		String destino = pedirCiudad("Ingrese la ciudad de destino:");
 		if (destino == null) {
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
 		if (!mapa.containsVertex(destino)) {
 			System.out.println("Error: La ciudad '" + destino + "' no existe en el mapa.");
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
 		if (origen.equals(destino)) {
 			System.out.println("El origen y el destino son la misma ciudad. Distancia: 0 km.");
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
@@ -169,7 +172,7 @@ public class GPSExercise extends Exercise {
 			System.out.println("Distancia total: " + resultado.getTotalDistance() + " km");
 		}
 
-		currentPhase = 0;
+		currentPhase = 5;
 	}
 
 	// Agregar una nueva ciudad al mapa
@@ -178,7 +181,7 @@ public class GPSExercise extends Exercise {
 
 		String ciudad = pedirTexto("Ingrese el nombre de la nueva ciudad:");
 		if (ciudad == null) {
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
@@ -189,7 +192,7 @@ public class GPSExercise extends Exercise {
 			System.out.println("¡Ciudad '" + ciudad + "' agregada exitosamente!");
 		}
 
-		currentPhase = 0;
+		currentPhase = 5;
 	}
 
 	// Agregar una nueva ruta entre dos ciudades
@@ -205,19 +208,19 @@ public class GPSExercise extends Exercise {
 
 		String desde = pedirCiudad("Ingrese la ciudad de origen:");
 		if (desde == null) {
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
 		String hacia = pedirCiudad("Ingrese la ciudad de destino:");
 		if (hacia == null) {
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
 		if (desde.equals(hacia)) {
 			System.out.println("Error: La ciudad de origen y destino no pueden ser la misma.");
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
@@ -225,7 +228,7 @@ public class GPSExercise extends Exercise {
 		if (!scanner.hasNextInt()) {
 			System.out.println("Error: Ingrese un número válido.");
 			scanner.nextLine();
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
@@ -234,7 +237,7 @@ public class GPSExercise extends Exercise {
 
 		if (distancia <= 0) {
 			System.out.println("Error: La distancia debe ser mayor a 0.");
-			currentPhase = 0;
+			currentPhase = 5;
 			return;
 		}
 
@@ -242,7 +245,7 @@ public class GPSExercise extends Exercise {
 		agregarRutaBidireccional(desde, hacia, distancia);
 		System.out.println("¡Ruta agregada: " + desde + " ↔ " + hacia + " (" + distancia + " km)!");
 
-		currentPhase = 0;
+		currentPhase = 5;
 	}
 
 	// Pide el nombre de una ciudad (con validacion de vacio)
