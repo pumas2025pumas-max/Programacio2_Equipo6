@@ -144,82 +144,83 @@ public class ContactsExercise extends Exercise {
 	}
 
 	// Editar un contacto existente
-		private void editarContacto() {
-			System.out.println("\n--- Editar Contacto ---");
+	private void editarContacto() {
+		System.out.println("\n--- Editar Contacto ---");
 
-			if (contactos.isEmpty()) {
-				System.out.println("No hay contactos registrados.");
-				currentPhase = 0;
-				return;
-			}
-
-			String nombre = pedirTexto("Ingrese el nombre del contacto a editar:");
-			if (nombre == null) {
-				currentPhase = 0;
-				return;
-			}
-
-			Contact contacto = contactos.get(nombre);
-			if (contacto == null) {
-				System.out.println("No se encontró un contacto con el nombre '" + nombre + "'.");
-				currentPhase = 0;
-				return;
-			}
-
-			System.out.println("Contacto actual: " + contacto.toString());
-			System.out.println("\n¿Qué desea editar?");
-			System.out.println("1.Nombre");
-			System.out.println("2 Número de teléfono");
-			System.out.println("3. Mail");
-			System.out.println("4. Todos los datos");
-
-			if (!scanner.hasNextInt()) {
-				System.out.println("Error: Ingrese un número.");
-				scanner.nextLine();
-				currentPhase = 0;
-				return;
-			}
-
-			int opcion = scanner.nextInt();
-			scanner.nextLine();
-
-			if (opcion == 1 || opcion == 4) {
-				String nuevoNombre = pedirTexto("Ingrese el nuevo nombre:");
-				if (nuevoNombre != null) {
-					if (!nuevoNombre.equals(nombre) && contactos.containsKey(nuevoNombre)) {
-						System.out.println("Error: Ya existe un contacto con el nombre '" + nuevoNombre + "'.");
-					} else if (!nuevoNombre.equals(nombre)) {
-						contactos.remove(nombre);
-						contacto.setNombre(nuevoNombre);
-						contactos.put(nuevoNombre, contacto);
-						nombre = nuevoNombre;
-					}
-				}
-			}
-
-			if (opcion == 2 || opcion == 4) {
-				String nuevoNumero = pedirTexto("Ingrese el nuevo número:");
-				if (nuevoNumero != null) {
-					contacto.setNumero(nuevoNumero);
-				}
-			}
-
-			if (opcion == 3 || opcion == 4) {
-				String nuevoMail = pedirTexto("Ingrese el nuevo mail:");
-				if (nuevoMail != null) {
-					contacto.setMail(nuevoMail);
-				}
-			}
-
-			if (opcion >= 1 && opcion <= 4) {
-				System.out.println("¡Contacto actualizado!");
-				System.out.println(contacto.toString());
-			} else {
-				System.out.println("Opción no válida.");
-			}
-
+		if (contactos.isEmpty()) {
+			System.out.println("No hay contactos registrados.");
 			currentPhase = 0;
+			return;
 		}
+
+		String nombre = pedirTexto("Ingrese el nombre del contacto a editar:");
+		if (nombre == null) {
+			currentPhase = 0;
+			return;
+		}
+
+		Contact contacto = contactos.get(nombre);
+		if (contacto == null) {
+			System.out.println("No se encontró un contacto con el nombre '" + nombre + "'.");
+			currentPhase = 0;
+			return;
+		}
+
+		System.out.println("Contacto actual: " + contacto.toString());
+		System.out.println("\n¿Qué desea editar?");
+		System.out.println("1.Nombre");
+		System.out.println("2 Número de teléfono");
+		System.out.println("3. Mail");
+		System.out.println("4. Todos los datos");
+
+		if (!scanner.hasNextInt()) {
+			System.out.println("Error: Ingrese un número.");
+			scanner.nextLine();
+			currentPhase = 0;
+			return;
+		}
+
+		int opcion = scanner.nextInt();
+		scanner.nextLine();
+
+		if (opcion == 1 || opcion == 4) {
+			String nuevoNombre = pedirTexto("Ingrese el nuevo nombre:");
+			if (nuevoNombre != null) {
+				if (!nuevoNombre.equals(nombre) && contactos.containsKey(nuevoNombre)) {
+					System.out.println("Error: Ya existe un contacto con el nombre '" + nuevoNombre + "'.");
+				} else if (!nuevoNombre.equals(nombre)) {
+					contactos.remove(nombre);
+					contacto.setNombre(nuevoNombre);
+					contactos.put(nuevoNombre, contacto);
+					nombre = nuevoNombre;
+				}
+			}
+		}
+
+		if (opcion == 2 || opcion == 4) {
+			String nuevoNumero = pedirTexto("Ingrese el nuevo número:");
+			if (nuevoNumero != null) {
+				contacto.setNumero(nuevoNumero);
+			}
+		}
+
+		if (opcion == 3 || opcion == 4) {
+			String nuevoMail = pedirTexto("Ingrese el nuevo mail:");
+			if (nuevoMail != null) {
+				contacto.setMail(nuevoMail);
+			}
+		}
+
+		if (opcion >= 1 && opcion <= 4) {
+			System.out.println("¡Contacto actualizado!");
+			System.out.println(contacto.toString());
+		} else {
+			System.out.println("Opción no válida.");
+		}
+
+		currentPhase = 0;
+	}
+
 	// Borrar un contacto
 	private void borrarContacto() {
 		System.out.println("\n--- Borrar Contacto ---");
@@ -282,11 +283,11 @@ public class ContactsExercise extends Exercise {
 		System.out.println("\n--- Cargar Datos de Prueba ---");
 
 		String[][] datos = {
-			{"Ana García", "1145678901", "ana.garcia@mail.com"},
-			{"Carlos López", "1156789012", "carlos.lopez@mail.com"},
-			{"Elena Martínez", "1167890123", "elena.martinez@mail.com"},
-			{"Juan Pérez", "1134567890", "juan.perez@mail.com"},
-			{"María Rodríguez", "1178901234", "maria.rodriguez@mail.com"}
+				{ "Ana Garcia", "1145678901", "ana.garcia@mail.com" },
+				{ "Carlos Lopez", "1156789012", "carlos.lopez@mail.com" },
+				{ "Elena Martinez", "1167890123", "elena.martinez@mail.com" },
+				{ "Juan Perez", "1134567890", "juan.perez@mail.com" },
+				{ "Maria Rodriguez", "1178901234", "maria.rodriguez@mail.com" }
 		};
 
 		int agregados = 0;
