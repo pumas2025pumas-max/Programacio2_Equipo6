@@ -41,8 +41,8 @@ public class MainProgram {
         System.out.println("1. Ejecutar ejercicio de Listas (ListExercise)");
         System.out.println("2. Ejecutar ejercicio de Pila (StackExercise)");
         System.out.println("3. Ejecutar ejercicio de Cola (QueueExercise)");
-        System.out.println("4. Ejecutar ejercicio de Set (SetExercise)");
         System.out.println("SEGUNDO PARCIAL");
+        System.out.println("4. Ejecutar ejercicio de Set (SetExercise)");
         System.out.println("5. Ejecutar ejercicio de Email (EmailExercise)");
         System.out.println("6. Ejecutar ejercicio de Login (LoginExercise)");
         System.out.println("7. Ejecutar ejercicio de Contactos (ContactsExercise)");

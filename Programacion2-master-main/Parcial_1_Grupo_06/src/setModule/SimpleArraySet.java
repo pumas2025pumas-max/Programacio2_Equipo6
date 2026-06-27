@@ -24,6 +24,9 @@ public class SimpleArraySet<E> implements SimpleSet<E> {
 	// Inserta element si no existe ya en el Set
 	@Override
 	public boolean add(E element) {
+		if (element == null) {
+			throw new NullPointerException("No se permiten elementos null en el Set");
+		}
 		if (contains(element)) {
 			return false;
 		}
@@ -38,6 +41,9 @@ public class SimpleArraySet<E> implements SimpleSet<E> {
 	// Remueve element si existe en el Set
 	@Override
 	public boolean remove(E element) {
+		if (element == null) {
+			throw new NullPointerException("No se permiten elementos null en el Set");
+		}
 		for (int i = 0; i < size; i++) {
 			if (array[i].equals(element)) {
 				for (int j = i; j < size - 1; j++) {
@@ -54,6 +60,9 @@ public class SimpleArraySet<E> implements SimpleSet<E> {
 	// Devuelve si element existe en el Set
 	@Override
 	public boolean contains(E element) {
+		if (element == null) {
+			throw new NullPointerException("No se permiten elementos null en el Set");
+		}
 		for (int i = 0; i < size; i++) {
 			if (array[i].equals(element)) {
 				return true;
